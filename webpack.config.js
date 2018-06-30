@@ -1,30 +1,27 @@
-'use strict';
-
-const {
+var {
     VueLoaderPlugin
 } = require('vue-loader');
-const path = require('path');
 
+var path = require('path');
 module.exports = {
-    mode: 'development',
-    entry: './src/index.js',
+    mode: "development",
+    entry: "./src/index.js",
     output: {
-        path: path.resolve(__dirname, 'dist'),
-        filename: 'bundle.js'
+        path: path.resolve(__dirname, "dist"),
+        filename: "hiShu.js"
     },
     module: {
         rules: [{
-            test: /\.vue$/,
-            use: 'vue-loader'
-        }, {
-            test: /\.css/,
-            use: [
-                'style-loader',
-                'css-loader'
-            ]
-        }]
+                test: /\.vue$/,
+                use: "vue-loader"
+            },
+            {
+                test: /\.css$/,
+                use: ["style-loader", "css-loader"]
+            }
+        ]
     },
     plugins: [
         new VueLoaderPlugin()
     ]
-};
+}

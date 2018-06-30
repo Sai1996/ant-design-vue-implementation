@@ -1,23 +1,20 @@
 <template>
-    <div class="button">
-        {{ message }}
-    </div>
+    <div class="sbSi"> {{ message }}: miaomiaomiao </div>
 </template>
 
 <script>
 export default {
   data: () => ({
-    message: "Hello"
+    message: "Xiao Kuo Ai"
   })
 };
 </script>
 
-<style lang="css">
-.button {
+<style>
+.sbSi {
   background-color: aliceblue;
-  width: 100px;
-  height: 50px;
-  border-radius: 4px;
+  height: 200px;
+  width: 400px;
 }
 </style>
 
