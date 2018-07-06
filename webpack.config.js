@@ -8,7 +8,7 @@ module.exports = {
     entry: "./src/index.js",
     output: {
         path: path.resolve(__dirname, "dist"),
-        filename: "hiShu.js"
+        filename: "bundle.js"
     },
     module: {
         rules: [{

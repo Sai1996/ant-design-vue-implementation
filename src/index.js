@@ -1,7 +1,7 @@
 import Vue from 'vue';
-import Button from './button/index.vue';
+import App from './App.vue';
 
 new Vue({
-    el:'#app',
-    render: a => a(Button)
-})
+    el: '#app',
+    render: a => a(App)
+});
