@@ -1,5 +1,10 @@
 <template>
-  <button :class="[ 'btn','btn-' + type]"><slot></slot></button>
+  <button 
+    :class="[ 'btn','btn-' + type, ghost ? 'btn-background-ghost' : '', isClicked]" 
+    :disabled="disabled" 
+    v-on:click="destroyClicked();">
+      <slot></slot>
+  </button>
 </template>
 
 <script>
@@ -8,9 +13,33 @@ export default {
     type: {
       type: String,
       default: "default"
+    },
+    disabled: {
+      type: Boolean,
+      default: false
+    },
+    ghost: {
+      type: Boolean,
+      default: false
     }
   },
-  data: () => ({})
+  data: function() {
+    return {
+      isClicked: ""
+    };
+  },
+  methods: {
+    destroyClicked: function() {
+      this.isClicked = "clicked";
+
+      setTimeout(
+        () => {
+          this.isClicked = "";
+        },
+        400
+      );
+    }
+  }
 };
 </script>
 
@@ -30,17 +59,49 @@ export default {
   color: rgba(0, 0, 0, 0.65);
   background-color: #fff;
   border-color: #d9d9d9;
-  
+  outline: 0;
+  &.clicked::after {
+    box-sizing: content-box;
+    @keyframes buttonEffect {
+      to {
+        opacity: 0;
+        top: -6px;
+        left: -6px;
+        bottom: -6px;
+        right: -6px;
+        border-width: 6px;
+      }
+    }
+
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    bottom: -1px;
+    right: -1px;
+    border-radius: inherit;
+    border: 0 solid #1890ff;
+    opacity: 0.4;
+    animation: buttonEffect 0.4s;
+    display: block;
+  }
 }
 
 .btn-primary {
   color: #fff;
   background-color: #1890ff;
   border-color: #1890ff;
-}
-.btn-primary:hover {
-  background-color: #40a9ff;
-  border-color: #40a9ff;
+  &:hover,
+  &:focus {
+    background-color: #40a9ff;
+    border-color: #40a9ff;
+  }
+  &:active {
+    color: #fff;
+    background-color: #096dd9;
+    border-color: #096dd9;
+    outline: 0;
+  }
 }
 
 .btn-default:hover {
@@ -65,6 +126,42 @@ export default {
 .btn-danger:hover {
   color: #fff;
   background-color: #ff4d4f;
+  border-color: #ff4d4f;
+}
+
+.btn[disabled="disabled"],
+.btn[disabled="disabled"]:hover {
+  color: rgba(0, 0, 0, 0.25);
+  background-color: #f5f5f5;
+  border-color: #d9d9d9;
+  cursor: not-allowed;
+}
+
+.btn-background-ghost {
+  background: transparent !important;
+  border-color: #d9d9d9;
+  color: #fff;
+}
+
+.btn-primary.btn-background-ghost {
+  color: #1890ff;
+  background-color: transparent;
+  border-color: #1890ff;
+}
+
+.btn-primary.btn-background-ghost:hover {
+  color: #40a9ff;
+  background-color: transparent;
+  border-color: #40a9ff;
+}
+
+.btn-danger.btn-background-ghost {
+  color: #f5222d;
+  border-color: #f5222d;
+}
+
+.btn-danger.btn-background-ghost:hover {
+  color: #ff4d4f;
   border-color: #ff4d4f;
 }
 </style>
