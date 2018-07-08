@@ -19,6 +19,8 @@
   "homepage": "https://github.com/Sai1996/ant-design-vue-implementation#readme",
   "devDependencies": {
     "css-loader": "^0.28.11",
+    "node-sass": "^4.9.1",
+    "sass-loader": "^7.0.3",
     "style-loader": "^0.21.0",
     "vue-loader": "^15.2.4",
     "vue-template-compiler": "^2.5.16",

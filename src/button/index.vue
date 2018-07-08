@@ -4,12 +4,17 @@
 
 <script>
 export default {
-  props: ["type"],
+  props: {
+    type: {
+      type: String,
+      default: "default"
+    }
+  },
   data: () => ({})
 };
 </script>
 
-<style>
+<style lang="scss">
 .btn {
   line-height: 1.5;
   display: inline-block;
@@ -25,6 +30,7 @@ export default {
   color: rgba(0, 0, 0, 0.65);
   background-color: #fff;
   border-color: #d9d9d9;
+  
 }
 
 .btn-primary {

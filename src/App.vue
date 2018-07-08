@@ -1,9 +1,23 @@
 <template>
 <div>
-    <ad-button type="primary">Primary</ad-button>
-    <ad-button type="default">Default</ad-button>
-    <ad-button type="dashed">Dashed</ad-button>
-    <ad-button type="danger">Danger</ad-button>
+    <h1>Button</h1>
+    <hr>
+    <div>
+      <h2>Buttons with different types</h2>
+      <div>
+        <ad-button type="primary">Primary</ad-button>
+        <ad-button>Default</ad-button>
+        <ad-button type="dashed">Dashed</ad-button>
+        <ad-button type="danger">Danger</ad-button>
+      </div>
+      <h2>Disabled buttons</h2>
+      <div>
+        <ad-button type="primary">Primary</ad-button>
+        <ad-button >Default</ad-button>
+        <ad-button type="dashed">Dashed</ad-button>
+        <ad-button type="ghost">Danger</ad-button>
+      </div>
+    </div>
 </div>
 </template>
 
