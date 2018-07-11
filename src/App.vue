@@ -53,19 +53,30 @@
         <ad-button  v-on:click="handleOnClick">Alert</ad-button>
       </div>
     </div>
+    <h1>Affix</h1>
+    <hr>
+    <div>
+      <h2>Basics</h2>
+      <div>
+        <affix>
+          <ad-button type="primary">Affix top</ad-button>
+        </affix>
+      </div>
+    </div>
 </div>
 </template>
 
 <script>
 import Button from "./button/index.vue";
+import Affix from "./affix/index.vue";
 
 export default {
   components: {
-    "ad-button": Button
+    "ad-button": Button,
+    affix: Affix
   },
   methods: {
     handleOnClick: function() {
-      
       window.alert("1");
     }
   }

@@ -60,7 +60,7 @@ export default {
         this.isClicked = "";
       }, 400);
 
-      this.$emit('click', event);
+      this.$emit("click", event);
     }
   }
 };
