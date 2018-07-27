@@ -57,10 +57,34 @@
     <hr>
     <div>
       <h2>Basics</h2>
-      <div>
-        <affix>
-          <ad-button type="primary">Affix top</ad-button>
+      <div style="height: 3000px">
+        <div>
+          <affix>
+            <ad-button type="primary">Affix top</ad-button>
+          </affix>
+        </div>
+        <div style="padding-left: 100px">
+          <affix v-bind:offsetTop="10">
+          <ad-button>Affix top</ad-button>
         </affix>
+        </div>
+      </div>
+    </div>
+    <h1>Menu</h1>
+    <hr>
+    <div>
+      <h2>Horizontal menu</h2>
+      <div style="margin-left:100px;font-size:0px">
+        <ad-menu type="primary">Navigation One</ad-menu>
+        <ad-menu type="disabled">Navigation Two</ad-menu>
+        <ad-menu type="primary">Navigation Three-subMenu</ad-menu>
+        <ad-menu type="primary" href="http://www.bing.com" target="_blank">Navigation Four-link</ad-menu>
+      </div>
+      <h2>Vertical menu</h2>
+      <div>
+        <ad-menu v-on:click="someFunc" type="primaryV">Navigation One</ad-menu>
+        <ad-menu type="primaryV">Navigation One</ad-menu>
+        <ad-menu type="primaryV">Navigation One</ad-menu>
       </div>
     </div>
 </div>
@@ -69,11 +93,12 @@
 <script>
 import Button from "./button/index.vue";
 import Affix from "./affix/index.vue";
-
+import Menu from "./menu/menu.vue";
 export default {
   components: {
     "ad-button": Button,
-    affix: Affix
+    affix: Affix,
+    "ad-menu": Menu
   },
   methods: {
     handleOnClick: function() {
