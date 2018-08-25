@@ -57,7 +57,7 @@
     <hr>
     <div>
       <h2>Basics</h2>
-      <div style="height: 3000px">
+      <div style="height: 1000px">
         <div>
           <affix>
             <ad-button type="primary">Affix top</ad-button>
@@ -70,22 +70,26 @@
         </div>
       </div>
     </div>
-    <h1>Menu</h1>
+    <h1>Dropdown</h1>
     <hr>
-    <div>
-      <h2>Horizontal menu</h2>
-      <div style="margin-left:100px;font-size:0px">
-        <ad-menu type="primary">Navigation One</ad-menu>
-        <ad-menu type="disabled">Navigation Two</ad-menu>
-        <ad-menu type="primary">Navigation Three-subMenu</ad-menu>
-        <ad-menu type="primary" href="http://www.bing.com" target="_blank">Navigation Four-link</ad-menu>
-      </div>
-      <h2>Vertical menu</h2>
-      <div>
-        <ad-menu v-on:click="someFunc" type="primaryV">Navigation One</ad-menu>
-        <ad-menu type="primaryV">Navigation One</ad-menu>
-        <ad-menu type="primaryV">Navigation One</ad-menu>
-      </div>
+    <div style="height:400px">
+      <ad-dropdown>
+        <div>Hover on me</div>
+        <ad-dropdown-menu slot="dropdown">
+          <ad-dropdown-item>
+            ABC
+          </ad-dropdown-item>
+          <ad-dropdown-item>
+            DEF
+          </ad-dropdown-item>
+          <ad-dropdown-item>
+            GHI
+          </ad-dropdown-item>
+          <ad-dropdown-item disabled>
+            JKL
+          </ad-dropdown-item>
+        </ad-dropdown-menu>
+      </ad-dropdown>
     </div>
 </div>
 </template>
@@ -93,12 +97,16 @@
 <script>
 import Button from "./button/index.vue";
 import Affix from "./affix/index.vue";
-import Menu from "./menu/menu.vue";
+import DropdownEl from "./dropdown/dropdown.vue";
+import DropdownItem from "./dropdown/dropdown-Item.vue";
+import DropdownMenu from "./dropdown/dropdown-Menu.vue";
 export default {
   components: {
     "ad-button": Button,
     affix: Affix,
-    "ad-menu": Menu
+    "ad-dropdown": DropdownEl,
+    "ad-dropdown-item": DropdownItem,
+    "ad-dropdown-menu": DropdownMenu
   },
   methods: {
     handleOnClick: function() {

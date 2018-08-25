@@ -16,7 +16,7 @@ export default {
     },
     offsetBottom: {
       type: Number,
-      default: 0
+      default: undefined
     }
   },
   data() {
@@ -44,8 +44,10 @@ export default {
       }
 
       if (viewportFromTop > this.originalElementOffsetTop - this.offsetTop) {
-        this.elementStyle = `position:fixed; top:${this.offsetTop}; bottom: ${
-          this.offsetBottom
+        this.elementStyle = `position:fixed; top:${this.offsetTop}; ${
+          typeof this.offsetBottom === "undefined"
+            ? ""
+            : "bottom:" + this.offsetBottom
         }`;
       } else {
         this.elementStyle = "";

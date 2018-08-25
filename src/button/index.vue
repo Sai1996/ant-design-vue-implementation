@@ -55,6 +55,7 @@ export default {
   methods: {
     handleOnClick: function(event) {
       this.isClicked = "clicked";
+      
 
       setTimeout(() => {
         this.isClicked = "";
