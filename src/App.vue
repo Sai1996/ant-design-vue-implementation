@@ -91,6 +91,13 @@
         </ad-dropdown-menu>
       </ad-dropdown>
     </div>
+
+    <h1>Pagination</h1>
+    <hr>
+    <div style="height:400px">
+      <span> A few pages...</span>
+      <ad-pagination v-on:changePage="changePage" v-bind:size="10" style="margin-top:20px;"></ad-pagination>
+    </div>
 </div>
 </template>
 
@@ -100,17 +107,22 @@ import Affix from "./affix/index.vue";
 import DropdownEl from "./dropdown/dropdown.vue";
 import DropdownItem from "./dropdown/dropdown-Item.vue";
 import DropdownMenu from "./dropdown/dropdown-Menu.vue";
+import Pagination from "./pagination/index.vue";
 export default {
   components: {
     "ad-button": Button,
     affix: Affix,
     "ad-dropdown": DropdownEl,
     "ad-dropdown-item": DropdownItem,
-    "ad-dropdown-menu": DropdownMenu
+    "ad-dropdown-menu": DropdownMenu,
+    "ad-pagination": Pagination
   },
   methods: {
     handleOnClick: function() {
       window.alert("1");
+    },
+    changePage: function(index){
+      console.log("The current page is " + ++index);
     }
   }
 };
